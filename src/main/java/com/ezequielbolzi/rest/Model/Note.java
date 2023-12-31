@@ -1,19 +1,19 @@
 package com.ezequielbolzi.rest.Model;
 
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.web.WebProperties;
+
+import java.util.Set;
 
 @Entity
-@Table(schema = "TasksCrud")
-public class Task {
+@Table(schema = "noteapp")
+public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
     private String title;
     @Column
-    private String description;
-
+    private boolean archived;
     public long getId() {
         return id;
     }
@@ -29,17 +29,12 @@ public class Task {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    public String getDescription() {
-        return description;
+    public boolean isArchived() {
+        return archived;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setArchived(boolean archived) {
+        this.archived = archived;
     }
-
-
-
-
 
 }
